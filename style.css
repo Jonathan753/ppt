@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid black;
+}
+
+.player-options img,
+.enemy-options img {
+    max-width: 180px;
+    opacity: 0.3;
+}
+
+.player-options img {
+    cursor: pointer;
+
+}
+
+.align {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.vencedor {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+}
