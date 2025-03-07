@@ -3,7 +3,6 @@ var enemyOptions = document.querySelectorAll('.enemy-options div img');
 var playerOpt = "";
 var enemyOpt = "";
 
-
 const ResetOpacityPlayer = () => { // função criada para resetar a opacidade das outras opções do player
     for (var i = 0; i < elementos.length; i++) {
         elementos[i].style.opacity = 0.3;
@@ -28,44 +27,51 @@ const inimigoJogar = () => {
 }
 
 const ValidarVitoria = () => { // Função criada para validar cada resultado
-    let resultado = document.querySelector('.vencedor');
+    let resultado = document.querySelector('.resultado');
+    let feedback = document.querySelector('.feedback')
     if (playerOpt == 'papel') {
         if (enemyOpt == 'papel') {
-            resultado.innerHTML = 'Empate!';
+            feedback.innerHTML = 'Empate!';
         } else if (enemyOpt == 'pedra') {
-            resultado.innerHTML = 'Você ganhou!';
+            feedback.innerHTML = 'Você ganhou!';
         } else if (enemyOpt == 'tesoura') {
-            resultado.innerHTML = 'Você perdeu!'
+            feedback.innerHTML = 'Você perdeu!'
         }
     }
 
     if (playerOpt == 'pedra') {
         if (enemyOpt == 'pedra') {
-            resultado.innerHTML = 'Empate!';
+            feedback.innerHTML = 'Empate!';
         } else if (enemyOpt == 'tesoura') {
-            resultado.innerHTML = 'Você ganhou!';
+            feedback.innerHTML = 'Você ganhou!';
         } else if (enemyOpt == 'papel') {
-            resultado.innerHTML = 'Você perdeu!'
+            feedback.innerHTML = 'Você perdeu!'
         }
     }
 
     if (playerOpt == 'tesoura') {
         if (enemyOpt == 'tesoura') {
-            resultado.innerHTML = 'Empate!';
+            feedback.innerHTML = 'Empate!';
         } else if (enemyOpt == 'papel') {
-            resultado.innerHTML = 'Você ganhou!';
+            feedback.innerHTML = 'Você ganhou!';
         } else if (enemyOpt == 'pedra') {
-            resultado.innerHTML = 'Você perdeu!'
+            feedback.innerHTML = 'Você perdeu!'
         }
+    }
+    resultado.innerHTML += `<button type="button" class="btn btn-secondary btn-lg" onclick="window.location.reload(true)">Reiniciar</button>`
+
+}
+
+let Game = () => {
+    for (var i = 0; i < elementos.length; i++) {
+        elementos[i].addEventListener('click', (t) => { // Cria um evento de click, nesse casso e necessario ter um retorno por isso a função target
+            ResetOpacityPlayer(); // outras imagens com opacity 0.3
+            t.target.style.opacity = 1; // Opção do player selecionada com opacidade 1
+            playerOpt = t.target.getAttribute('opt'); // Salva a opção selecionada nessa variavel
+            inimigoJogar(); // Fução para atividade do adversário
+            ValidarVitoria(); // Verificação do resultado
+        });
     }
 }
 
-for (var i = 0; i < elementos.length; i++) {
-    elementos[i].addEventListener('click', (t) => { // Cria um evento de click, nesse casso e necessario ter um retorno por isso a função target
-        ResetOpacityPlayer(); // outras imagens com opacity 0.3
-        t.target.style.opacity = 1; // Opção do player selecionada com opacidade 1
-        playerOpt = t.target.getAttribute('opt'); // Salva a opção selecionada nessa variavel
-        inimigoJogar(); // Fução para atividade do adversário
-        ValidarVitoria(); // Verificação do resultado
-    });
-}
+Game()

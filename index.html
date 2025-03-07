@@ -12,10 +12,13 @@
 
 <body>
     <h1 class="display-3">Pedra, Papel ou Tesoura</h1>
-    <div class="container" style="background-color:antiquewhite ;">
+    <div class="container">
         <div class="row">
             <div class="col">
-                <div class="player-options">
+                <div class="player-options float-start">
+                    <div class="identificador">
+                        <h3>Você</h3>
+                    </div>
                     <div class="cartao">
                         <img opt="pedra" src="assets/pedra.png" alt="">
                         <h5>Pedra</h5>
@@ -24,19 +27,24 @@
                         <img opt="papel" src="assets/papel.png" alt="">
                         <h5>Papel</h5>
                     </div>
-                    <div class="cartao"><img opt="tesoura" src="assets/tesoura.png" alt="">
+                    <div class="cartao">
+                        <img opt="tesoura" src="assets/tesoura.png" alt="">
                         <h5>Tesoura</h5>
                     </div>
                 </div>
             </div>
 
             <div class="col d-flex justify-content-center">
-                <span class="vencedor align-items-center"></span>
-                <span class="vencedor align-items-center"></span>
+                <div class="resultado align-content-center text-center">
+                    <span class="feedback align-items-center"></span>
+                </div>
             </div>
 
             <div class="col">
-                <div class="enemy-options rounded float-end">
+                <div class="enemy-options float-end">
+                    <div class="identificador">
+                        <h3>Adversário</h3>
+                    </div>
                     <div class="cartao">
                         <img opt="pedra" src="assets/pedra.png" alt="">
                         <h5>Pedra</h5>
