@@ -33,3 +33,21 @@ h1 {
     align-items: center;
     font-size: 30px;
 }
+
+.cartao {
+    width: 220px;
+    text-align: center;
+    background-color: white;
+    margin: 30px 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px;
+}
+
+img {
+    padding: 15px 5px;
+    border-bottom: solid 1px rgb(60, 60, 60);
+}
+
+h5 {
+    padding: 10px 5px;
+}
